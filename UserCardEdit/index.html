@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+
+  <body ng-app="UserCardEdit">
+    <div ng-controller="MainController as ctrl">
+      <h1>User Info</h1>
+      <div ng-hide="ctrl.showEdit">
+        <p ng-bind="ctrl.user.fName"></p>
+        <p ng-bind="ctrl.user.lName"></p>
+        <p ng-bind="ctrl.user.email"></p>
+        <button ng-click="ctrl.edit()">Edit</button>
+      </div>
+
+      <div ng-show="ctrl.showEdit">
+        <input type="text"
+          ng-value="ctrl.user.fName"
+          ng-model="ctrl.newUser.fName"
+          class="user-edit-textbox"></input>
+        <input type="text"
+          ng-value="ctrl.user.lName"
+          ng-model="ctrl.newUser.lName"
+          class="user-edit-textbox"></input>
+        <input type="text"
+          ng-value="ctrl.user.email"
+          ng-model="ctrl.newUser.email"
+          class="user-edit-textbox"></input>
+        <button
+          ng-click="ctrl.done()">Done</button>
+        <button
+          ng-click="ctrl.cancel()">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
