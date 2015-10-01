@@ -14,21 +14,14 @@ angular.module('UserCardEdit', [])
   self.edit = function(){
     self.showEdit = true;
     self.newUser = angular.copy(self.user);
-    console.log(self.user);
-    console.log(self.newUser);
   };
 
   self.cancel = function(){
     self.showEdit = false;
-    console.log(self.newUser);
-    self.newUser = angular.copy(self.user);
-    console.log(self.user);
-    console.log(self.newUser);
   };
 
   self.done = function(){
     self.showEdit = false;
     self.user = angular.copy(self.newUser);
-    console.log(self.user);
   };
 });
