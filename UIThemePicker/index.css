@@ -1,0 +1,60 @@
+.styledDivGroup{
+  height: 192px;
+}
+
+.styledDiv{
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 50%;
+}
+
+.body-red{
+  background-color: lightsalmon;
+}
+.body-blue{
+  background-color: lightblue;
+}
+.body-green{
+  background-color: lightgreen;
+}
+.body-black{
+  background-color: gray;
+}
+.body-orange{
+  background-color: lemonchiffon;
+}
+
+
+
+
+.div1-red{
+  background-color: red;
+}
+.div1-blue{
+  background-color: blue;
+}
+.div1-green{
+  background-color: green;
+}
+.div1-black{
+  background-color: slategray;
+}
+.div1-orange{
+  background-color: orange;
+}
+
+.div2-red{
+  background-color: pink;
+}
+.div2-blue{
+  background-color: darkblue;
+}
+.div2-green{
+  background-color: darkgreen;
+}
+.div2-black{
+  background-color: dimgray;
+}
+.div2-orange{
+  background-color: sandybrown;
+}
