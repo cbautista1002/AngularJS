@@ -1,3 +1,4 @@
+/* Styles for the divs that are changing */
 .styledDivGroup{
   height: 192px;
 }
@@ -8,6 +9,7 @@
   height: 50%;
 }
 
+/* Styles for the body */
 .body-red{
   background-color: lightsalmon;
 }
@@ -24,9 +26,7 @@
   background-color: lemonchiffon;
 }
 
-
-
-
+/* Styles for the first div */
 .div1-red{
   background-color: red;
 }
@@ -43,6 +43,7 @@
   background-color: orange;
 }
 
+/* Styles for the second div */
 .div2-red{
   background-color: pink;
 }
