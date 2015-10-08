@@ -15,11 +15,11 @@ angular.module('StudentGradeCalculator')
 
   self.calcGrade = function(average){
     average = parseInt(average);
-    if(average >= 90) {return 'A';}
-    if(average >= 80) {return 'B';}
-    if(average >= 70) {return 'C';}
-    if(average >= 60) {return 'D';}
-    else              {return 'F';}
+    if     (average >= 90) {return 'A';}
+    else if(average >= 80) {return 'B';}
+    else if(average >= 70) {return 'C';}
+    else if(average >= 60) {return 'D';}
+    else                   {return 'F';}
   };
 
   self.calcPassing = function(grade){
