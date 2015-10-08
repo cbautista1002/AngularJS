@@ -8,12 +8,9 @@ angular.module('StudentGradeCalculator')
 .service('GradeCalculator', function(PASSING){
   var self = this;
 
-  self.calcAverage = function(grades){
-    var sum = 0;
-    for(var i = 0; i < grades.length; i++){
-      sum += grades[i].score;
-    }
-    return sum / grades.length;
+  self.calcAverage = function(scores){
+    var sum = scores.reduce(function(a, b) { return a + b; });
+    return sum / scores.length;
   };
 
   self.calcGrade = function(average){

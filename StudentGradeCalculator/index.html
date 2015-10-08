@@ -15,14 +15,14 @@
         <input type="text" ng-model="ctrl.asgn_name">
         <label>Assignment Score (out of 100)</label>
         <input type="number" ng-model="ctrl.asgn_score">
-        <buttonng-click="ctrl.student.addAssignment(ctrl.asgn_name, ctrl.asgn_score)">
+        <button ng-click="ctrl.student.addAssignment(ctrl.asgn_name, ctrl.asgn_score)">
           Add
         </button>
       </div>
     </div>
 
     <div class="row">
-      <!-- Table of grades on the left hand side -->
+      <!-- Table of assignments on the left hand side -->
       <div class="small-6 columns">
         <div class="row">
           <div class="small-6 columns">
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="row">
-          <div ng-repeat="grade in ctrl.student.grades">
+          <div ng-repeat="grade in ctrl.student.asmnts">
             <div class="small-6 columns">
               <span ng-bind="grade.name"></span>
             </div>
