@@ -1,25 +1,28 @@
 
 angular.module('PlaylistSelector', [])
 
-.controller('MainController', function(Playlist, SONGS, ListGenerator, GENRES){
-
+.controller('MainController', function(SONGS, ListGenerator, GENRES){
   var self = this;
 
-  self.playlist = new Playlist();
-
   self.genres = GENRES;
-  self.songs = SONGS;
-
-  self.chosenSongs = {};
+  self.songs  = SONGS;
+  self.explicitChoice = 'Clean';
+  self.disableExplicit = true;
 
   self.submitList = function(){
-    console.log(self.chosenSongs);
-    var list = ListGenerator.generate(self.chosenSongs, self.explicitChoice);
+    console.log(self.songs);
+    var list = ListGenerator.generate(self.songs, self.explicitChoice);
     console.log(JSON.stringify(list));
   }
 
   self.checkAge = function(){
     console.log(self.age);
+    if(self.age < 18){
+      self.disableExplicit = true;
+    }
+    else{
+      self.disableExplicit = false;
+    }
   }
 
 });

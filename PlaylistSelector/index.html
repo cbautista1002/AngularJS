@@ -7,8 +7,6 @@
 
   <body ng-controller="MainController as ctrl">
 
-    <pre>{{ctrl.songs | json}}</pre>
-
     <div class="row">
       <div class="small-6 columns">
         <h1>Me</h1>
@@ -31,12 +29,14 @@
         <h1>Clean or Explicit?</h1>
           <input type="radio"
                  name="explicit"
-                 value="clean"
-                 ng-model="ctrl.explicitChoice"> Clean
+                 value="Clean"
+                 ng-model="ctrl.explicitChoice"
+                 ng-checked="true"> Clean
           <input type="radio"
                  name="explicit"
-                 value="explicit"
-                 ng-model="ctrl.explicitChoice"> Explicit
+                 value="Explicit"
+                 ng-model="ctrl.explicitChoice"
+                 ng-disabled="ctrl.disableExplicit"> Explicit
       </div>
     </div>
 

@@ -1,8 +1,6 @@
 // object mapping song to genre
 
-
 angular.module('PlaylistSelector')
-
 
 .value('SONGS', {
   Pop: [
@@ -31,14 +29,6 @@ angular.module('PlaylistSelector')
   ],
 
 
-})
-
-.value('SONG_LIST', {
-  'PopSong1': 'Pop',
-  'RockSong1': 'Rock',
-  'PopSong2': 'Pop',
-  'RockSong2': 'Rock',
-  'RapSong1': 'Rap'
 })
 
 .value('GENRES', [
