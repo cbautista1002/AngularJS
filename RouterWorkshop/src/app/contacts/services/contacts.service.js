@@ -9,12 +9,8 @@
 
     self.allUsers = [];
 
-    self.addNewUser = function(fName, lName, phone) {
-      self.allUsers.push({
-        fName: fName,
-        lName: lName,
-        phone: phone
-      });
+    self.addNewUser = function(user) {
+      self.allUsers.push(user);
     };
   }
 

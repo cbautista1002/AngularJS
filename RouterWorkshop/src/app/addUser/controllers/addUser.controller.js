@@ -9,11 +9,9 @@
     var self = this;
 
     self.addNewUser = function(){
-      ContactService.addNewUser(self.fName, self.lName, self.phone);
+      ContactService.addNewUser(self.user);
       console.log(ContactService.allUsers);
-      self.fName = '';
-      self.lName = '';
-      self.phone = '';
+      self.user = {};
     };
   }
 
