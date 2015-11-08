@@ -1,0 +1,30 @@
+<md-content flex layout-padding>
+  <div layout="row">
+    <h1>Apps</h1>
+  </div>
+  <div layout="row">
+    <md-button class="md-raised md-primary" ng-click="appsCtrl.getAppList()">Get Apps</md-button>
+  </div>
+  <table ng-show="appsCtrl.appList.length">
+    <tr>
+      <th>Name</th>
+      <th>Latest Version</th>
+      <th>Released On</th>
+      <th>Developer</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="app in appsCtrl.appList">
+      <td ng-bind="app.name"></td>
+      <td ng-bind="app.version"></td>
+      <td ng-bind="app.date"></td>
+      <td ng-bind="app.dev"></td>
+      <td ng-bind="app.size"></td>
+      <td>
+        <md-button class="md-raised md-accent" ng-click="appsCtrl.installNow(app.id)">
+          Install Now
+        </md-button>
+      </td>
+    </tr>
+  </table>
+</md-content>
