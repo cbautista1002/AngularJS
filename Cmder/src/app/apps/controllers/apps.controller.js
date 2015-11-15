@@ -6,22 +6,26 @@
     .controller('AppsController', AppsController);
 
   /** @ngInject */
-  function AppsController(AppsResource){
-    var self = this;
+  function AppsController(AppsResource,  $log){
+    var vm = this;
 
-    self.appList = [];
+    vm.popularApps = [];
+    vm.appList = [];
 
-    self.getAppList = function(){
-      AppsResource.query().$promise.then(function onSuccess(appList){
-        console.log(appList);
-        self.appList = appList;
-      }, function onError(errorResponse) {
-        console.log('ERROR!!!')
-      });
+    AppsResource.query().$promise.then(function onSuccess(appsFromResource){
+      $log.log(appsFromResource);
+      vm.popularApps = appsFromResource.slice(0, 3);
+      vm.appList = appsFromResource.slice(3, appsFromResource.length);
+    }, function onError(errorResponse) {
+      $log.error('Error: ' + errorResponse);
+    });
+
+    vm.installNow = function(appId){
+      $log.log('Installing ' + appId);
     };
 
-    self.installNow = function(appId){
-      console.log('Installing ' + appId);
+    vm.likeApp = function(appId){
+      $log.log('Liking ' + appId);
     };
   }
 })();

@@ -7,6 +7,6 @@
 
   /** @ngInject */
   function AppsResource($resource) {
-    return $resource('assets/test.json', null);
+    return $resource('api/apps', null);
   }
 })();

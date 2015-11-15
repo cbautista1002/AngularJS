@@ -33,7 +33,7 @@
         controllerAs: 'serversCtrl'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/apps');
   }
 
 })();

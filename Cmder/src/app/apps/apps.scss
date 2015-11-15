@@ -6,8 +6,12 @@
 // endbower
 
 table, tr, th, td{
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-collapse: collapse;
+}
+
+md-card{
+  background-color: lightblue;
 }
 
 /**

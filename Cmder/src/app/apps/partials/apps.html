@@ -1,9 +1,29 @@
-<md-content flex layout-padding>
+<md-content flex layout-padding ng-show="appsCtrl.popularApps.length || appsCtrl.appList.length">
+
   <div layout="row">
-    <h1>Apps</h1>
+    <h1>Most Popular</h1>
   </div>
   <div layout="row">
-    <md-button class="md-raised md-primary" ng-click="appsCtrl.getAppList()">Get Apps</md-button>
+    <md-card ng-repeat="app in appsCtrl.popularApps">
+      <md-card-content>
+        <h2 class="md-title" ng-bind="app.name"></h2>
+        <p ng-bind="app.desc"></p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-raised md-warn" ng-click="appsCtrl.installNow(app.id)">
+          Quick Install
+        </md-button>
+        <md-button class="md-raised md-warn" ng-click="appsCtrl.likeApp(app.id)">
+          Like
+        </md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+  <br><br>
+
+  <div layout="row">
+    <h1>All Apps</h1>
   </div>
   <table ng-show="appsCtrl.appList.length">
     <tr>
@@ -21,10 +41,11 @@
       <td ng-bind="app.dev"></td>
       <td ng-bind="app.size"></td>
       <td>
-        <md-button class="md-raised md-accent" ng-click="appsCtrl.installNow(app.id)">
-          Install Now
+        <md-button class="md-raised md-warn" ng-click="appsCtrl.installNow(app.id)">
+          Quick Install
         </md-button>
       </td>
     </tr>
   </table>
+
 </md-content>

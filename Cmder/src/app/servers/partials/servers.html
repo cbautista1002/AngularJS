@@ -1,1 +1,21 @@
-<h1>Servers</h1>
+<md-content flex layout-padding ng-show="serversCtrl.servers.length || serversCtrl.decoedServers.length">
+
+  <h1>Servers</h1>
+
+  <ul>
+    <li ng-repeat="server in serversCtrl.servers">
+      <label ng-bind="server.name"></label>
+      <label ng-bind="server.ip"></label>
+    </li>
+  </ul>
+
+  <h1>Decoed Servers</h1>
+
+  <ul>
+    <li ng-repeat="server in serversCtrl.decoedServers">
+      <label ng-bind="server.name"></label>
+      <label ng-bind="server.ip"></label>
+    </li>
+  </ul>
+
+</md-content>
