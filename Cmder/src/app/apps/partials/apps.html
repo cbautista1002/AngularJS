@@ -5,15 +5,24 @@
   </div>
   <div layout="row">
     <md-card ng-repeat="app in appsCtrl.popularApps">
+      <md-icon md-svg-icon=""></md-icon>
       <md-card-content>
         <h2 class="md-title" ng-bind="app.name"></h2>
         <p ng-bind="app.desc"></p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="center center">
-        <md-button class="md-raised md-warn" ng-click="appsCtrl.installNow(app.id)">
+        <md-button class="md-raised md-warn"
+                   ng-click="appsCtrl.installNow(app)"
+                   ng-hide="app.installInProgress">
           Quick Install
         </md-button>
-        <md-button class="md-raised md-warn" ng-click="appsCtrl.likeApp(app.id)">
+        <md-button class="md-raised"
+                   ng-click="appsCtrl.viewInstall(app.installId)"
+                   ng-show="app.installInProgress">
+          Installing...
+        </md-button>
+        <md-button class="md-raised md-warn"
+                   ng-click="appsCtrl.likeApp(app)">
           Like
         </md-button>
       </md-card-actions>
@@ -41,8 +50,15 @@
       <td ng-bind="app.dev"></td>
       <td ng-bind="app.size"></td>
       <td>
-        <md-button class="md-raised md-warn" ng-click="appsCtrl.installNow(app.id)">
+        <md-button class="md-raised md-warn"
+                   ng-click="appsCtrl.installNow(app)"
+                   ng-hide="app.installInProgress">
           Quick Install
+        </md-button>
+        <md-button class="md-raised"
+                   ng-click="appsCtrl.viewInstall(app.installId)"
+                   ng-show="app.installInProgress">
+          Installing...
         </md-button>
       </td>
     </tr>

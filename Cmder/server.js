@@ -5,6 +5,12 @@ app.use(express.static(__dirname + '/.tmp/serve/'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/app',  express.static(__dirname + '/src/app'));
 
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({   // to support URL-encoded bodies
+  extended: true
+}));
+
 
 app.get('/', function (req, res) {
   res.send('./.tmp/serve/index.htmls');
@@ -157,6 +163,12 @@ app.get('/api/decoedServers', function (req, res) {
   res.json(decoedServers);
 });
 
+app.post('/api/quickInstall', function(req, res) {
+  var app = req.body.app;
+  var server = req.body.server;
+  console.log(app, server);
+  res.json({success: true})
+});
 
 
 var server = app.listen(3000, function () {

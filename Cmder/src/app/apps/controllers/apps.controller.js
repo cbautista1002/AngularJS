@@ -6,7 +6,7 @@
     .controller('AppsController', AppsController);
 
   /** @ngInject */
-  function AppsController(AppsResource,  $log){
+  function AppsController(AppsResource, QuickInstallResource,  $log){
     var vm = this;
 
     vm.popularApps = [];
@@ -20,12 +20,23 @@
       $log.error('Error: ' + errorResponse);
     });
 
-    vm.installNow = function(appId){
-      $log.log('Installing ' + appId);
+    vm.installNow = function(app){
+      $log.log('Installing ' + app.id);
+      QuickInstallResource.install({
+        app: app.id,
+        server: 'fakeserver1'
+      }).$promise.then(function onSuccess(resp){
+        resp = JSON.parse(angular.toJson(resp));
+        if(resp.success){
+          app.installInProgress = true;
+        }
+      }, function onError(err){
+        $log.log('Error occurred: ' + err);
+      });
     };
 
-    vm.likeApp = function(appId){
-      $log.log('Liking ' + appId);
+    vm.likeApp = function(app){
+      $log.log('Liking ' + app.id);
     };
   }
 })();
