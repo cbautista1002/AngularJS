@@ -16,8 +16,8 @@ var rConn  = require(__dirname+"/dbConnections.js");
 // Flight Planner
 
 var install = {
-  appName: "Flight Planner",
-  serverName: "dev-1.domain.com",
+  appName: "Dfndr",
+  serverName: "prod-1.domain.com",
   completed: false
 };
 

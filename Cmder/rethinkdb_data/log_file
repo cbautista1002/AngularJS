@@ -125,3 +125,13 @@
 2015-11-18T18:51:52.076251523 1.670618s info: Table 2791135a-8c59-4f34-8132-99ac70d086d6: This server is Raft leader for term 2. Latest log index is 4.
 2015-11-18T18:51:52.237054643 1.831422s info: Table f7ef0508-3c9f-4157-a56f-e5782688e2e3: Starting a new Raft election for term 2.
 2015-11-18T18:51:52.240331299 1.834698s info: Table f7ef0508-3c9f-4157-a56f-e5782688e2e3: This server is Raft leader for term 2. Latest log index is 4.
+2015-11-18T21:38:37.684736484 10007.279103s info: Table ece9f49a-771c-4bde-866e-87374ed111e5: Deleted the table.
+2015-11-18T21:38:52.985848514 10022.580215s info: Table 0b077f7a-1659-443d-a1bd-ba70a56ad219: Added replica on this server.
+2015-11-18T21:38:54.460817868 10024.055185s info: Table 0b077f7a-1659-443d-a1bd-ba70a56ad219: Starting a new Raft election for term 1.
+2015-11-18T21:38:54.464279666 10024.058646s info: Table 0b077f7a-1659-443d-a1bd-ba70a56ad219: This server is Raft leader for term 1. Latest log index is 0.
+2015-11-18T21:38:55.070794922 10024.665162s info: Table 0b077f7a-1659-443d-a1bd-ba70a56ad219: Configuration is changing.
+2015-11-18T23:23:10.660111020 16280.254478s info: Table d51dd3dd-bc79-48c9-b0ae-638b4e24bb3d: Deleted the table.
+2015-11-18T23:23:22.089657513 16291.684025s info: Table 5b10ea56-7c9b-4702-a194-fcf8050f1c8c: Added replica on this server.
+2015-11-18T23:23:23.639589421 16293.233956s info: Table 5b10ea56-7c9b-4702-a194-fcf8050f1c8c: Starting a new Raft election for term 1.
+2015-11-18T23:23:23.643196206 16293.237563s info: Table 5b10ea56-7c9b-4702-a194-fcf8050f1c8c: This server is Raft leader for term 1. Latest log index is 0.
+2015-11-18T23:23:24.174177068 16293.768544s info: Table 5b10ea56-7c9b-4702-a194-fcf8050f1c8c: Configuration is changing.

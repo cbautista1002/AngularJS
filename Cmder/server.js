@@ -298,8 +298,6 @@ r.connect(config.rethinkdb, function(err, conn) {
 
   r.table("installs").changes().run(conn, function(error, cursor){
     cursor.each(function(error, row){
-//       console.log('Row');
-//       console.log(row);
       if(row){
         var sleepTime = 5000;
         console.log('Sending update in ' + sleepTime + ' seconds');

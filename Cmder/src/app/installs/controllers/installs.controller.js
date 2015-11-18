@@ -6,7 +6,8 @@
     .controller('InstallsController', InstallsController);
 
   /** @ngInject */
-  function InstallsController(InstallsResource, AddAutoInstallResource, GetAutoInstallsResource, AppsResource, ServersResource, INSTALLS_CBTABLE_DEFINITION, $scope, $filter){
+  function InstallsController(InstallsResource, AddAutoInstallResource, GetAutoInstallsResource,
+      AppsResource, ServersResource, INSTALLS_CBTABLE_DEFINITION, $mdToast, $scope, $filter){
     var vm = this;
 
     var socket = io.connect();
@@ -27,6 +28,10 @@
             found = true;
             console.log('found and updated');
             console.log(vm.runningList[i]);
+            var toastMsg = msg.appName + ' installed on ' + msg.serverName;
+            $mdToast.show(
+              $mdToast.simple().content(toastMsg)
+            );
           }
         }
       }
@@ -34,6 +39,10 @@
         console.log('not found');
         msg.createdAt = $filter('date')(msg.createdAt, 'MM/dd/yyyy hh:mm a');
         vm.runningList.unshift(msg);
+        var toastMsg = 'Installing ' + msg.appName + ' on ' + msg.serverName;
+        $mdToast.show(
+          $mdToast.simple().content(toastMsg)
+        );
       }
       $scope.$apply();
     });
