@@ -32,6 +32,7 @@
       }
       if(!found){
         console.log('not found');
+        msg.createdAt = $filter('date')(msg.createdAt, 'MM/dd/yyyy hh:mm a');
         vm.runningList.unshift(msg);
       }
       $scope.$apply();

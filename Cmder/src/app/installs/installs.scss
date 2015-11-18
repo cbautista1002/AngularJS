@@ -13,6 +13,18 @@
   line-height: 35px;
 }
 
+.installsEntry.ng-enter{
+	opacity: 0.0;
+/* 	transform: translateX(-100px); */
+  color: red;
+	transition: 1s ease-in all;
+}
+.installsEntry.ng-enter-active{
+	opacity: 1.0;
+  color: black;
+/* 	transform: translateX(0); */
+}
+
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

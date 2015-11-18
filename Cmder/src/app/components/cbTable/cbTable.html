@@ -5,7 +5,7 @@
     <h4 ng-bind="header.headerName"></h4>
   </span>
 </div>
-<div layout="column" ng-repeat="item in cbTableCtrl.data">
+<div layout="column" ng-repeat="item in cbTableCtrl.data" class="installsEntry">
   <div layout="row" ng-class="{gray: $even}">
     <span flex
           class="installsList"
@@ -14,19 +14,4 @@
     </span>
   </div>
 </div>
-<!-- <div layout="column" ng-repeat="item in cbTableCtrl.data">
-  <div layout="row" ng-class="{gray: $even}">
-    <span class="installsList" flex
-          ng-bind="item.status">
-    </span>
-    <span class="installsList" flex
-          ng-bind="item.appName">
-    </span>
-    <span class="installsList" flex
-          ng-bind="item.serverName">
-    </span>
-    <span class="installsList" flex
-          ng-bind="item.createdAt">
-    </span>
-  </div>
-</div> -->
+
