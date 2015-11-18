@@ -6,7 +6,7 @@
     .controller('ServersController', ServersController);
 
   /** @ngInject */
-  function ServersController(ServersResource, DecoedServersResource, $log){
+  function ServersController(ServersResource, $log){
     var vm = this;
 
     vm.servers = [];
@@ -19,11 +19,5 @@
       $log.error('Error: ' + errorResponse);
     });
 
-    DecoedServersResource.query().$promise.then(function onSuccess(serverList){
-      $log.log(serverList);
-      vm.decoedServers = serverList;
-    }, function onError(errorResponse) {
-      $log.error('Error: ' + errorResponse);
-    });
   }
 })();

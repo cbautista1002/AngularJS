@@ -2,20 +2,8 @@
 
   <h1>Servers</h1>
 
-  <ul>
-    <li ng-repeat="server in serversCtrl.servers">
-      <label ng-bind="server.name"></label>
-      <label ng-bind="server.ip"></label>
-    </li>
-  </ul>
-
-  <h1>Decoed Servers</h1>
-
-  <ul>
-    <li ng-repeat="server in serversCtrl.decoedServers">
-      <label ng-bind="server.name"></label>
-      <label ng-bind="server.ip"></label>
-    </li>
-  </ul>
+  <div ng-repeat="server in serversCtrl.servers">
+    <label ng-bind="server.serverName"></label>
+  </div>
 
 </md-content>

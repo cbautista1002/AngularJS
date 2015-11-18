@@ -91,7 +91,7 @@ function getApps(req, res, next) {
 }
 
 function getInstalls(req, res, next) {
-  r.table('installs').orderBy({index: "createdAt"}).run(req._rdbConn, function(error, cursor) {
+  r.table('installs').orderBy({index: r.desc("createdAt")}).run(req._rdbConn, function(error, cursor) {
     if (error) {
       handleError(res, error)
       next();
@@ -284,7 +284,7 @@ function closeConnection(req, res, next) {
 }
 
 r.connect(config.rethinkdb, function(err, conn) {
-//   r.tableDrop('installs').run(conn, console.log);
+//   r.tableDrop('autoInstalls').run(conn, console.log);
 //   return;
   if (err) {
     console.log("Could not open a connection to initialize the database");
@@ -298,13 +298,15 @@ r.connect(config.rethinkdb, function(err, conn) {
 
   r.table("installs").changes().run(conn, function(error, cursor){
     cursor.each(function(error, row){
-      console.log('Row');
-      console.log(row);
+//       console.log('Row');
+//       console.log(row);
       if(row){
-        console.log('New Change. Sleeping for 10s');
+        var sleepTime = 5000;
+        console.log('Sending update in ' + sleepTime + ' seconds');
         setTimeout(function(){
-          io.emit('installs update', JSON.stringify(row.new_val))
-        }, 10000);
+          io.emit('installs update', JSON.stringify(row.new_val));
+          console.log('sent');
+        }, sleepTime);
       }
     });
   });

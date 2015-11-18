@@ -63,6 +63,7 @@
 
     vm.likeApp = function(app){
       console.log('Liking ' + app.id);
+      app.liked = true;
     };
 
     vm.addNewApp = function(){

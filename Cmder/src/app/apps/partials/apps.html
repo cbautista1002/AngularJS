@@ -4,20 +4,21 @@
     <h1>Most Popular</h1>
   </div>
   <div layout="row">
-    <md-card ng-repeat="app in appsCtrl.popularApps">
+    <md-card ng-repeat="app in appsCtrl.popularApps" flex>
       <md-card-content>
-        <md-icon md-svg-icon="{{app.svgIconFile}}" class="s48"></md-icon>
+        <md-icon md-svg-src="{{app.svgIconFile}}" class="size100"></md-icon>
         <p class="md-title" ng-bind="app.appName"></p>
         <p ng-bind="app.description"></p>
       </md-card-content>
-      <md-card-actions layout="row" layout-align="center center">
+      <md-card-actions layout="row">
         <install-flipper stage-holder="app"
                          on-click="appsCtrl.installNow(app)">
         </install-flipper>
-        <md-button class="md-raised md-warn"
-                   ng-click="appsCtrl.likeApp(app)">
-          Like
-        </md-button>
+        <md-icon md-svg-src="ic_thumb_up_black_48px.svg"
+                 class="thumbsUpIcon size40"
+                 ng-class="{thumbsUpIconLiked: app.liked}"
+                 ng-click="appsCtrl.likeApp(app)">
+        </md-icon>
       </md-card-actions>
     </md-card>
   </div>

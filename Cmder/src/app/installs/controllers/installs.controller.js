@@ -13,8 +13,26 @@
 
     socket.on('installs update', function(msg){
       msg = JSON.parse(msg);
+      msg.status = msg.completed ? "completed" : "running";
       console.log(msg);
-      vm.runningList.push(msg);
+      // If completed then update UI
+      var found = false;
+      if(msg.completed){
+        for(var i = 0; i < vm.runningList.length; i++){
+          console.log(vm.runningList[i].id);
+          console.log(msg.id);
+          if(vm.runningList[i].id == msg.id){
+            vm.runningList[i].status = 'completed';
+            found = true;
+            console.log('found and updated');
+            console.log(vm.runningList[i]);
+          }
+        }
+      }
+      if(!found){
+        console.log('not found');
+        vm.runningList.unshift(msg);
+      }
       $scope.$apply();
     });
 
@@ -60,7 +78,12 @@
     InstallsResource.query().$promise.then(function onSuccess(appList){
       console.log(appList);
       vm.runningList = appList;
-    }, function onError(errorResponse) {
+      vm.runningList = vm.runningList.map(function(install){
+        install.status = install.completed ? "completed" : "running";
+        console.log(install);
+        return install;
+      });
+    }, function onError(errorResponse){
       console.error('Error: ' + errorResponse);
     });
 

@@ -1,31 +1,35 @@
-<md-content flex layout-padding ng-show="installsCtrl.runningList.length || installsCtrl.pastList.length">
+<md-content flex layout-padding>
 
   <div layout="row">
-    <div layout="column" flex>
+    <div layout="column" flex="40" flex-offset="10">
+
       <h2>Set Up Auto Install</h2>
-      <md-input-container>
-        <label>Application</label>
-        <md-select ng-model="installsCtrl.autoInstallApp">
-          <md-option ng-repeat="apps in installsCtrl.apps"
-                     value="{{apps.appName}}">
-            {{apps.appName}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-      <md-input-container>
-        <label>Server to Install on</label>
-        <md-select ng-model="installsCtrl.autoInstallServer">
-          <md-option ng-repeat="server in installsCtrl.servers"
-                     value="{{server.serverName}}">
-            {{server.serverName}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-      <md-button class="md-raised md-warn"
-                 ng-click="installsCtrl.addAutoInstall()">Submit</md-button>
+
+      <form>
+        <md-input-container>
+          <label>Application</label>
+          <md-select ng-model="installsCtrl.autoInstallApp">
+            <md-option ng-repeat="apps in installsCtrl.apps"
+                       value="{{apps.appName}}"
+                       ng-bind="apps.appName">
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>Server to Install on</label>
+          <md-select ng-model="installsCtrl.autoInstallServer">
+            <md-option ng-repeat="server in installsCtrl.servers"
+                       value="{{server.serverName}}"
+                       ng-bind="server.serverName">
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-button class="md-raised md-warn"
+                   ng-click="installsCtrl.addAutoInstall()">Submit</md-button>
+      </form>
     </div>
 
-    <div flex>
+    <div flex="40" flex-offset="10">
       <h2>Current Auto Installs</h2>
       <div ng-repeat="auto in installsCtrl.autoInstalls">
         <span>App: </span><label ng-bind="auto.autoInstallApp"></label><br>
@@ -41,13 +45,15 @@
       <h2>Installs</h2>
       <md-divider></md-divider>
       <div layout="row">
+        <span flex><h4>Status</h4></span>
         <span flex><h4>Application</h4></span>
         <span flex><h4>Server</h4></span>
         <span flex><h4>Time</h4></span>
       </div>
       <div layout="column" ng-repeat="install in installsCtrl.runningList">
         <div layout="row" ng-class="{gray: $even}">
-          <span class="installsList" flex ng-bind="install.appId"></span>
+          <span class="installsList" flex ng-bind="install.status"></span>
+          <span class="installsList" flex ng-bind="install.appName"></span>
           <span class="installsList" flex ng-bind="install.serverName"></span>
           <span class="installsList" flex ng-bind="install.createdAt"></span>
         </div>
