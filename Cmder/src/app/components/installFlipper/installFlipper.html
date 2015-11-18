@@ -1,0 +1,15 @@
+<md-button class="md-raised md-warn"
+           ng-click="installFlipperCtrl.directiveSelect(app)"
+           ng-show="installFlipperCtrl.pending">
+  Quick Install
+</md-button>
+<md-button class="md-raised"
+           ng-show="installFlipperCtrl.running"
+           id="installRunningButton">
+  Installing...
+</md-button>
+<md-button class="md-raised md-primary"
+           ng-show="installFlipperCtrl.complete"
+           id="installCompleteButton">
+  Complete!
+</md-button>

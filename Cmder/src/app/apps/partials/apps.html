@@ -5,22 +5,15 @@
   </div>
   <div layout="row">
     <md-card ng-repeat="app in appsCtrl.popularApps">
-      <md-icon md-svg-icon=""></md-icon>
       <md-card-content>
-        <h2 class="md-title" ng-bind="app.name"></h2>
-        <p ng-bind="app.desc"></p>
+        <md-icon md-svg-icon="{{app.svgIconFile}}" class="s48"></md-icon>
+        <p class="md-title" ng-bind="app.appName"></p>
+        <p ng-bind="app.description"></p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="center center">
-        <md-button class="md-raised md-warn"
-                   ng-click="appsCtrl.installNow(app)"
-                   ng-hide="app.installInProgress">
-          Quick Install
-        </md-button>
-        <md-button class="md-raised"
-                   ng-click="appsCtrl.viewInstall(app.installId)"
-                   ng-show="app.installInProgress">
-          Installing...
-        </md-button>
+        <install-flipper stage-holder="app"
+                         on-click="appsCtrl.installNow(app)">
+        </install-flipper>
         <md-button class="md-raised md-warn"
                    ng-click="appsCtrl.likeApp(app)">
           Like
@@ -44,24 +37,32 @@
       <th></th>
     </tr>
     <tr ng-repeat="app in appsCtrl.appList">
-      <td ng-bind="app.name"></td>
+      <td ng-bind="app.appName"></td>
       <td ng-bind="app.version"></td>
-      <td ng-bind="app.date"></td>
-      <td ng-bind="app.dev"></td>
-      <td ng-bind="app.size"></td>
+      <td ng-bind="app.createdAt"></td>
+      <td ng-bind="app.developerName"></td>
+      <td ng-bind="app.sizeOnDisk"></td>
       <td>
-        <md-button class="md-raised md-warn"
-                   ng-click="appsCtrl.installNow(app)"
-                   ng-hide="app.installInProgress">
-          Quick Install
-        </md-button>
-        <md-button class="md-raised"
-                   ng-click="appsCtrl.viewInstall(app.installId)"
-                   ng-show="app.installInProgress">
-          Installing...
-        </md-button>
+        <install-flipper stage-holder="app"
+                         on-click="appsCtrl.installNow(app)">
+        </install-flipper>
       </td>
     </tr>
   </table>
+
+  <br><br>
+  <div ng-show="appsCtrl.showAdmin">
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.name" placeholder="name"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.id" placeholder="id"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.version" placeholder="version"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.date" placeholder="date"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.dev" placeholder="dev"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.size" placeholder="size"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.desc" placeholder="desc"></label><br>
+    <label><input type="text" ng-model="appsCtrl.admin.newApp.svgIcon" placeholder="svgIcon"></label><br>
+    <button ng-click="appsCtrl.addNewApp()">Add new app</button><br><br>
+    <label><input type="text" ng-model="appsCtrl.deleteAppId" placeholder="id to delete"></label><br>
+    <button ng-click="appsCtrl.deleteApp()">Delete app</button>
+  </div>
 
 </md-content>

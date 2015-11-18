@@ -1,43 +1,59 @@
 <md-content flex layout-padding ng-show="installsCtrl.runningList.length || installsCtrl.pastList.length">
 
   <div layout="row">
-    <h1>Running Installs</h1>
+    <div layout="column" flex>
+      <h2>Set Up Auto Install</h2>
+      <md-input-container>
+        <label>Application</label>
+        <md-select ng-model="installsCtrl.autoInstallApp">
+          <md-option ng-repeat="apps in installsCtrl.apps"
+                     value="{{apps.appName}}">
+            {{apps.appName}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Server to Install on</label>
+        <md-select ng-model="installsCtrl.autoInstallServer">
+          <md-option ng-repeat="server in installsCtrl.servers"
+                     value="{{server.serverName}}">
+            {{server.serverName}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-button class="md-raised md-warn"
+                 ng-click="installsCtrl.addAutoInstall()">Submit</md-button>
+    </div>
+
+    <div flex>
+      <h2>Current Auto Installs</h2>
+      <div ng-repeat="auto in installsCtrl.autoInstalls">
+        <span>App: </span><label ng-bind="auto.autoInstallApp"></label><br>
+        <span>Server: </span><label ng-bind="auto.autoInstallServer"></label><br><br>
+      </div>
+    </div>
   </div>
-  <table ng-show="installsCtrl.runningList.length">
-    <tr>
-      <th>Server</th>
-      <th>Application</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Requested By</th>
-    </tr>
-    <tr ng-repeat="install in installsCtrl.runningList">
-      <td ng-bind="install.server"></td>
-      <td ng-bind="install.app"></td>
-      <td ng-bind="install.startTime"></td>
-      <td ng-bind="install.endTime"></td>
-      <td ng-bind="install.requestedBy"></td>
-    </tr>
-  </table>
+
+  <br><br><br>
 
   <div layout="row">
-    <h1>Past Installs</h1>
+    <div flex flex-offset="20" style="text-align:center">
+      <h2>Installs</h2>
+      <md-divider></md-divider>
+      <div layout="row">
+        <span flex><h4>Application</h4></span>
+        <span flex><h4>Server</h4></span>
+        <span flex><h4>Time</h4></span>
+      </div>
+      <div layout="column" ng-repeat="install in installsCtrl.runningList">
+        <div layout="row" ng-class="{gray: $even}">
+          <span class="installsList" flex ng-bind="install.appId"></span>
+          <span class="installsList" flex ng-bind="install.serverName"></span>
+          <span class="installsList" flex ng-bind="install.createdAt"></span>
+        </div>
+      </div>
+    </div>
+    <div flex="20"></div>
   </div>
-  <table ng-show="installsCtrl.pastList.length">
-    <tr>
-      <th>Server</th>
-      <th>Application</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Requested By</th>
-    </tr>
-    <tr ng-repeat="install in installsCtrl.pastList">
-      <td ng-bind="install.server"></td>
-      <td ng-bind="install.app"></td>
-      <td ng-bind="install.startTime"></td>
-      <td ng-bind="install.endTime"></td>
-      <td ng-bind="install.requestedBy"></td>
-    </tr>
-  </table>
 
 </md-content>

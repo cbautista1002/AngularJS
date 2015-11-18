@@ -11,8 +11,13 @@ table, tr, th, td{
 }
 
 md-card{
-  background-color: lightblue;
+  background-color: #f5f5f5;
 }
+
+.s48 {
+  width: 100px;
+  height: 100px;
+  color: #00f; }
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
