@@ -25,31 +25,10 @@
 
   <br><br>
 
-  <div layout="row">
-    <h1>All Apps</h1>
-  </div>
-  <table ng-show="appsCtrl.appList.length">
-    <tr>
-      <th>Name</th>
-      <th>Latest Version</th>
-      <th>Released On</th>
-      <th>Developer</th>
-      <th>Size</th>
-      <th></th>
-    </tr>
-    <tr ng-repeat="app in appsCtrl.appList">
-      <td ng-bind="app.appName"></td>
-      <td ng-bind="app.version"></td>
-      <td ng-bind="app.createdAt"></td>
-      <td ng-bind="app.developerName"></td>
-      <td ng-bind="app.sizeOnDisk"></td>
-      <td>
-        <install-flipper stage-holder="app"
-                         on-click="appsCtrl.installNow(app)">
-        </install-flipper>
-      </td>
-    </tr>
-  </table>
+  <cb-table name="appsCtrl.cbTableName"
+            headers="appsCtrl.cbTableHeaders"
+            data="appsCtrl.appList">
+  </cb-table>
 
   <br><br>
   <div ng-show="appsCtrl.showAdmin">

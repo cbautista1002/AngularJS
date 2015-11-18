@@ -38,26 +38,14 @@
     </div>
   </div>
 
-  <br><br><br>
+  <br>
 
   <div layout="row">
     <div flex flex-offset="20" style="text-align:center">
-      <h2>Installs</h2>
-      <md-divider></md-divider>
-      <div layout="row">
-        <span flex><h4>Status</h4></span>
-        <span flex><h4>Application</h4></span>
-        <span flex><h4>Server</h4></span>
-        <span flex><h4>Time</h4></span>
-      </div>
-      <div layout="column" ng-repeat="install in installsCtrl.runningList">
-        <div layout="row" ng-class="{gray: $even}">
-          <span class="installsList" flex ng-bind="install.status"></span>
-          <span class="installsList" flex ng-bind="install.appName"></span>
-          <span class="installsList" flex ng-bind="install.serverName"></span>
-          <span class="installsList" flex ng-bind="install.createdAt"></span>
-        </div>
-      </div>
+      <cb-table name="installsCtrl.cbTableName"
+                headers="installsCtrl.cbTableHeaders"
+                data="installsCtrl.runningList">
+      </cb-table>
     </div>
     <div flex="20"></div>
   </div>

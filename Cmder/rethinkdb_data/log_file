@@ -104,3 +104,24 @@
 2015-11-18T04:01:07.439161836 47394.829081s info: Table b9426a08-4829-4946-9496-516c68869cdc: Starting a new Raft election for term 1.
 2015-11-18T04:01:07.442602263 47394.832522s info: Table b9426a08-4829-4946-9496-516c68869cdc: This server is Raft leader for term 1. Latest log index is 0.
 2015-11-18T04:01:08.317524758 47395.707444s info: Table b9426a08-4829-4946-9496-516c68869cdc: Configuration is changing.
+2015-11-18T18:51:50.474734911 0.069104s notice: Running rethinkdb 2.2.0~0trusty (GCC 4.8.2)...
+2015-11-18T18:51:50.476638944 0.071007s notice: Running on Linux 3.16.0-34-generic x86_64
+2015-11-18T18:51:50.476783104 0.071150s notice: Loading data from directory /home/nitrous/code/AngularJS/Cmder/rethinkdb_data
+2015-11-18T18:51:50.487803901 0.082172s info: Automatically using cache size of 100 MB
+2015-11-18T18:51:50.487959159 0.082326s warn: Cache size does not leave much memory for server and query overhead (available memory: 361 MB).
+2015-11-18T18:51:50.487962741 0.082329s warn: Cache size is very low and may impact performance.
+2015-11-18T18:51:50.489323288 0.083690s notice: Listening for intracluster connections on port 29015
+2015-11-18T18:51:50.550531134 0.144898s notice: Listening for client driver connections on port 28015
+2015-11-18T18:51:50.551215980 0.145583s notice: Listening for administrative HTTP connections on port 8080
+2015-11-18T18:51:50.551217041 0.145583s notice: Listening on addresses: 127.0.0.1, ::1
+2015-11-18T18:51:50.551217406 0.145584s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-11-18T18:51:50.551217772 0.145584s notice: Server ready, "nycda_129676_hem" 5339aa55-f977-4efb-89c2-559d6eeb31d6
+2015-11-18T18:51:50.748989283 0.343356s notice: A newer version of the RethinkDB server is available: 2.2.1. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-11-18T18:51:51.906923143 1.501290s info: Table ece9f49a-771c-4bde-866e-87374ed111e5: Starting a new Raft election for term 2.
+2015-11-18T18:51:51.910638946 1.505006s info: Table ece9f49a-771c-4bde-866e-87374ed111e5: This server is Raft leader for term 2. Latest log index is 4.
+2015-11-18T18:51:52.041299223 1.635666s info: Table d51dd3dd-bc79-48c9-b0ae-638b4e24bb3d: Starting a new Raft election for term 2.
+2015-11-18T18:51:52.044615061 1.638982s info: Table d51dd3dd-bc79-48c9-b0ae-638b4e24bb3d: This server is Raft leader for term 2. Latest log index is 4.
+2015-11-18T18:51:52.073156936 1.667524s info: Table 2791135a-8c59-4f34-8132-99ac70d086d6: Starting a new Raft election for term 2.
+2015-11-18T18:51:52.076251523 1.670618s info: Table 2791135a-8c59-4f34-8132-99ac70d086d6: This server is Raft leader for term 2. Latest log index is 4.
+2015-11-18T18:51:52.237054643 1.831422s info: Table f7ef0508-3c9f-4157-a56f-e5782688e2e3: Starting a new Raft election for term 2.
+2015-11-18T18:51:52.240331299 1.834698s info: Table f7ef0508-3c9f-4157-a56f-e5782688e2e3: This server is Raft leader for term 2. Latest log index is 4.

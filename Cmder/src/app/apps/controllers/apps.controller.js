@@ -6,7 +6,7 @@
     .controller('AppsController', AppsController);
 
   /** @ngInject */
-  function AppsController(AppsResource, QuickInstallResource, AddAppResource, DeleteAppResource, $scope){
+  function AppsController(AppsResource, QuickInstallResource, AddAppResource, DeleteAppResource, APPS_CBTABLE_DEFINITION, $scope){
     var vm = this;
 
     var socket = io.connect();
@@ -15,6 +15,9 @@
     vm.appList = [];
     vm.showAdmin = false;
     vm.deleteAppId = null;
+
+    vm.cbTableName    = 'Applications';
+    vm.cbTableHeaders = APPS_CBTABLE_DEFINITION;
 
     AppsResource.query().$promise.then(function onSuccess(appsFromResource){
       console.log(appsFromResource);

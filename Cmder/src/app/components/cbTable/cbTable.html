@@ -1,0 +1,32 @@
+<h2 ng-bind="cbTableCtrl.name"></h2>
+<md-divider></md-divider>
+<div layout="row">
+  <span flex ng-repeat="header in cbTableCtrl.headers">
+    <h4 ng-bind="header.headerName"></h4>
+  </span>
+</div>
+<div layout="column" ng-repeat="item in cbTableCtrl.data">
+  <div layout="row" ng-class="{gray: $even}">
+    <span flex
+          class="installsList"
+          ng-repeat="header in cbTableCtrl.headers"
+          ng-bind="item[header.indexName]">
+    </span>
+  </div>
+</div>
+<!-- <div layout="column" ng-repeat="item in cbTableCtrl.data">
+  <div layout="row" ng-class="{gray: $even}">
+    <span class="installsList" flex
+          ng-bind="item.status">
+    </span>
+    <span class="installsList" flex
+          ng-bind="item.appName">
+    </span>
+    <span class="installsList" flex
+          ng-bind="item.serverName">
+    </span>
+    <span class="installsList" flex
+          ng-bind="item.createdAt">
+    </span>
+  </div>
+</div> -->

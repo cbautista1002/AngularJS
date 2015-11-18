@@ -260,9 +260,9 @@ function update(req, res, next) {
 }
 
 function del(req, res, next) {
-  var todo = req.body;
-  if ((todo != null) && (todo.id != null)) {
-    r.table('todos').get(todo.id).delete().run(req._rdbConn, function(error, result) {
+  var app = req.body;
+  if ((app != null) && (app.id != null)) {
+    r.table('apps').get(app.id).delete().run(req._rdbConn, function(error, result) {
       if (error) {
         handleError(res, error)
       }
@@ -273,7 +273,7 @@ function del(req, res, next) {
     });
   }
   else {
-    handleError(res, new Error("The todo must have a field `id`."))
+    handleError(res, new Error("The app must have a field `id`."))
     next();
   }
 }
